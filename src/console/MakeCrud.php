@@ -3,8 +3,6 @@
 namespace NahidHasanLimon\CrudGen\console;
 
 use Illuminate\Console\Command;
-use Illuminate\Console\GeneratorCommand;
-use Illuminate\Support\Str;
 use NahidHasanLimon\CrudGen\Services\CrudService;
 
 
@@ -26,7 +24,6 @@ class MakeCrud extends Command
     protected $description = 'Make a CRUD';
 
 
-
     /**
      * Execute the console command.
      *
@@ -34,17 +31,13 @@ class MakeCrud extends Command
      */
     public function handle()
     {
-        $crudGenerator = new CrudService($this->arguments());
-            dd($crudGenerator->build());
-        $name = $this->argument('name');
-
-        $this->model($name);
-
+        try {
+            $crudGenerator = new CrudService($this->arguments());
+            $this->info('CRUD generated  successfully...');
+        } catch (\Exception $ex) {
+            $this->error('Failed to generate...', $ex->getMessage());
+        }
     }
-
-
-
-
 
 
 }

@@ -23,9 +23,9 @@ class MakeView extends CrudBaseClass implements IMakeCrud
     {
         $this->ifDirectoryNoExistCreate();
         $this->writeLayout();
-//        $this->makeIndexView();
-//        $this->makeEditView();
-//        $this->makeShow();
+        $this->makeIndexView();
+        $this->makeEditView();
+        $this->makeShow();
     }
 
 
