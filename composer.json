@@ -3,7 +3,7 @@
   "description": "A simple CRUD generator package",
   "type": "library",
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "require": {
     "php": ">=7.4",
     "laravel/framework": ">=8.0"
