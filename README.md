@@ -11,13 +11,13 @@ A simple package for Create, Read, Edit, Update, Delete operation gen. However, 
 
 ##  Install Using Composer
 `composer require nahidhasanlimon/crudgen`
-
 ## Commands
 ` php artisan make:crud [Model name ] `
 ###### Examples
 ` php artisan make:crud Post `
-
-### Don't Forget to run these artisan commands after make:crud commad
+## Run migrate command
+`php artisan migrate`
+## Don't Forget to run these artisan commands after make:crud commad
 
 ` php artisan route:cache `
 ` php artisan view:cache `
