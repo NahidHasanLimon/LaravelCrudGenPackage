@@ -11,6 +11,10 @@ A simple package for Create, Read, Edit, Update, Delete operation gen. However, 
 
 ##  Install Using Composer
 `composer require nahidhasanlimon/crudgen`
+## Add Service Provider into 'config/app' providers array
+
+`\NahidHasanLimon\CrudGen\CrudGenServiceProvider::class,`
+
 ## Commands
 ` php artisan make:crud [Model name ] `
 ###### Examples
