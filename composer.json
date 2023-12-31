@@ -5,8 +5,8 @@
   "license": "MIT",
   "version": "1.0.1",
   "require": {
-    "php": "^7.4",
-    "laravel/framework": "^8.00"
+    "php": ">=7.4",
+    "laravel/framework": ">=8.0"
   },
   "authors": [
     {
