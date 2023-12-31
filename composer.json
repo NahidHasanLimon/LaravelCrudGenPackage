@@ -4,6 +4,10 @@
   "type": "library",
   "license": "MIT",
   "version": "1.0.0",
+  "require": {
+    "php": "^7.4",
+    "laravel/framework": "^10.10"
+  },
   "authors": [
     {
       "name": "nahidhasanlimon",
@@ -13,6 +17,13 @@
   "autoload": {
     "psr-4": {
       "NahidHasanLimon\\CrudGen\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "NahidHasanLimon\\CrudGen\\CrudGenServiceProvider"
+      ]
     }
   }
 }
