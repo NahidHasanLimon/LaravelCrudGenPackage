@@ -3,6 +3,7 @@
 namespace NahidHasanLimon\CrudGen\Services;
 
 
+use NahidHasanLimon\CrudGen\Services\View\MakeCreate;
 use NahidHasanLimon\CrudGen\Services\View\WriteIntoView;
 
 class MakeView extends CrudBaseClass implements IMakeCrud
@@ -26,6 +27,8 @@ class MakeView extends CrudBaseClass implements IMakeCrud
         $this->makeIndexView();
         $this->makeEditView();
         $this->makeShow();
+        $makeCreate  = new MakeCreate($this->arguments);
+        $makeCreate->make();
     }
 
 

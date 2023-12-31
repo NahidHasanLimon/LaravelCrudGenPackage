@@ -13,13 +13,16 @@ class {{modelName}}Controller extends Controller
         return view('{{modelNameSingularLowerCase}}.index', ['{{modelNamePluralLowerCase}}'=>${{modelNamePluralLowerCase}}]);
     }
 
+    public function create()
+        {
+            return view('{{modelNameSingularLowerCase}}.create');
+        }
+
     public function store({{modelName}}Request $request)
     {
         ${{modelNameSingularLowerCase}} = {{modelName}}::create($request->all());
-
-        return response()->json(${{modelNameSingularLowerCase}}, 201);
+        return redirect()->route('{{modelNamePluralLowerCase}}.index');
     }
-
     public function show($id)
     {
         ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
