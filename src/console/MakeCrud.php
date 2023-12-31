@@ -33,6 +33,7 @@ class MakeCrud extends Command
     {
         try {
             $crudGenerator = new CrudService($this->arguments());
+            $crudGenerator->build();
             $this->info('CRUD generated  successfully...');
         } catch (\Exception $ex) {
             $this->error('Failed to generate...', $ex->getMessage());
