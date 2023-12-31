@@ -1,0 +1,35 @@
+@extends('{{variableSingular}}.app')
+
+@section('customBody')
+
+	<div class="d-flex justify-content-end mb-3"><a href="{{ route('{{variable}}.create') }}" class="btn btn-info">Create</a></div>
+        <h6 class="text-center"> {{tableHeader}} </h6>
+	<table class="table table-bordered text-center">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach( ${{variable}} as ${{variableSingular}})
+				<tr>
+					<td>{{ ${{variableSingular}}->id }}</td>
+					<td>
+						<div class="d-flex justify-content-center gap-2">
+                            <a href="{{ route('{{variable}}.show', [${{variableSingular}}->id]) }}" class="btn btn-info">Show</a>
+                            <a href="{{ route('{{variable}}.edit', [${{variableSingular}}->id]) }}" class="btn btn-primary">Edit</a>
+                       <form action="{{ route('{{variable}}.destroy', [${{variableSingular}}->id]) }}" method="POST">
+                               @method('DELETE')
+                               @csrf
+                               <button type="submit" class="btn btn-danger">{{ trans('Delete') }}</button>
+                       </form>
+                        </div>
+					</td>
+				</tr>
+
+			@endforeach
+		</tbody>
+	</table>
+
+@stop

@@ -1,0 +1,49 @@
+<?php
+
+namespace {{controllerNamespace}};
+
+use {{requestNamespace}}\{{requestName}};
+use {{modelNamespace}}\{{modelName}};
+
+class {{modelName}}Controller extends Controller
+{
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::latest()->get();
+        return view('{{modelNameSingularLowerCase}}.index', ['{{modelNamePluralLowerCase}}'=>${{modelNamePluralLowerCase}}]);
+    }
+
+    public function store({{modelName}}Request $request)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::create($request->all());
+
+        return response()->json(${{modelNameSingularLowerCase}}, 201);
+    }
+
+    public function show($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        return view('{{modelNameSingularLowerCase}}.show',['{{modelNameSingularLowerCase}}'=>${{modelNameSingularLowerCase}}]);
+    }
+    public function edit($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        return view('{{modelNameSingularLowerCase}}.edit',['{{modelNameSingularLowerCase}}'=>${{modelNameSingularLowerCase}}]);
+    }
+
+    public function update({{modelName}}Request $request, $id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        ${{modelNameSingularLowerCase}}->update($request->all());
+
+        return response()->json(${{modelNameSingularLowerCase}}, 200);
+    }
+
+    public function destroy($id)
+    {
+        {{modelName}}::destroy($id);
+
+        return to_route('{{modelNamePluralLowerCase}}.index');
+
+    }
+}

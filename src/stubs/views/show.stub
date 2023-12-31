@@ -1,0 +1,19 @@
+@extends('{{variableSingular}}.app')
+
+@section('customBody')
+
+
+	<table class="table table-bordered text-center">
+		<thead>
+			<tr>
+				<th>id</th>
+			</tr>
+		</thead>
+		<tbody>
+					<td>{{ ${{variableSingular}}->id }}</td>
+
+				</tr>
+		</tbody>
+	</table>
+
+@stop

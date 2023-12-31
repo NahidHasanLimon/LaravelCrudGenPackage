@@ -1,0 +1,19 @@
+{
+  "name": "nahidhasanlimon/crudgen",
+  "description": "A demo package",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "nahidhasanlimon",
+      "email": "nahidhasanlimon@doe.com"
+    }
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "NahidHasanLimon\\CrudGen\\": "src"
+    }
+  }
+}
