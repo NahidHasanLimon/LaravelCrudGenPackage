@@ -1,16 +1,15 @@
 {
   "name": "nahidhasanlimon/crudgen",
-  "description": "A demo package",
+  "description": "A simple CRUD generator package",
   "type": "library",
   "license": "MIT",
   "version": "1.0.0",
   "authors": [
     {
       "name": "nahidhasanlimon",
-      "email": "nahidhasanlimon@doe.com"
+      "email": "nh.limon@yahoo.com"
     }
   ],
-
   "autoload": {
     "psr-4": {
       "NahidHasanLimon\\CrudGen\\": "src"
