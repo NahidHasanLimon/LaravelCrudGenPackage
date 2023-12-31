@@ -7,12 +7,25 @@ use NahidHasanLimon\CrudGen\Services\View\WriteIntoView;
 
 class MakeView extends CrudBaseClass implements IMakeCrud
 {
+    public function ifDirectoryNoExistCreate(): void
+    {
+        if (!file_exists($this->preparedArguments->getViewsFolderPath()))
+            $this->makeRequestDir();
+
+    }
+
+    public function makeRequestDir(): void
+    {
+        mkdir($this->preparedArguments->getViewsFolderPath(), 0777, true);
+    }
+
     public function make(): void
     {
+        $this->ifDirectoryNoExistCreate();
         $this->writeLayout();
-        $this->makeIndexView();
-        $this->makeEditView();
-        $this->makeShow();
+//        $this->makeIndexView();
+//        $this->makeEditView();
+//        $this->makeShow();
     }
 
 
@@ -86,11 +99,12 @@ class MakeView extends CrudBaseClass implements IMakeCrud
         $writeIntoView = new WriteIntoView($content, $file_path);
         $writeIntoView->write();
     }
+
     public function makeShow(): void
     {
         $stub = file_get_contents(__DIR__ . "/../stubs/views/show.stub");
 
-        $content =  str_replace(
+        $content       = str_replace(
             [
                 '{{variableSingular}}',
                 '{{variableRoute}}',
@@ -102,7 +116,7 @@ class MakeView extends CrudBaseClass implements IMakeCrud
             ],
             $stub
         );
-        $writeIntoView = new WriteIntoView($content,  $this->preparedArguments->getViewsFolderPath() . 'show.blade' . '.php');
+        $writeIntoView = new WriteIntoView($content, $this->preparedArguments->getViewsFolderPath() . 'show.blade' . '.php');
         $writeIntoView->write();
     }
 
